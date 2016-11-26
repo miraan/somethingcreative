@@ -18,13 +18,14 @@ router.get('/students', function(req, res, next) {
 });
 
 router.get('/tutors', function(req, res, next) {
-	
+
 	Tutor.find(function(err, tutors){
 		if(err){return next(err);}
 		res.json(tutors);
 	});
 });
 
+// expects that req.body has the correct fields set
 router.post('/addstudent', function(req, res, next) {
 	var studentInput = new Student(req.body);
 	studentInput.save(function(err, studentInput) {
@@ -33,6 +34,7 @@ router.post('/addstudent', function(req, res, next) {
 	});
 });
 
+// expects that req.body has the correct fields set
 router.post('/addtutor', function(req, res, next){
 	var tutorInput = new Tutor(req.body);
 	tutorInput.save(function(err, tutorInput){
