@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "browserify": "browserify",
+    "build:js": "npm run browserify -- ./js/main.js -o ./public/js/main.js"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
+    "browserify": "^13.1.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
