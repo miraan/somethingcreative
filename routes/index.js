@@ -13,7 +13,9 @@ router.get('/', function(req, res, next) {
 router.get('/students', function(req, res, next) {
 	Student.find(function(err, students) {
 		if(err){return next(err);}
-		res.json(students);
+        res.render('students', {
+            students: students
+        });
 	});
 });
 
